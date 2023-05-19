@@ -29,8 +29,10 @@ MaterialEditLibrary.connect_material_property(ORMTextureParam, "G", unreal.Mater
 MaterialEditLibrary.connect_material_property(ORMTextureParam, "B", unreal.MaterialProperty.MP_METALLIC)
 
 #Create Material Instance
-MI_Stacked = AssetTools.create_asset("MI_Stacked", "/Game/Materials", unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
-#MI_Stacked.set_editor_property("Parent", "M_Master_Stacked")
+MaterialInstanceStacked = AssetTools.create_asset("MI_Stacked", "/Game/Materials", unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
+MaterialEditLibrary.set_material_instance_parent(MaterialInstanceStacked, Materials)
+MaterialInstanceStacked.set_editor_property("Parent", Materials)
+MaterialEditLibrary.update_material_instance(MaterialInstanceStacked)
 
 #Save Materials and Instances
 EditorAssetLibrary.save_asset("/Game/Materials/M_Master_Stacked", True)
