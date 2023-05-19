@@ -24,6 +24,7 @@ MaterialEditLibrary.connect_material_property(SpecularParam, "", unreal.Material
 #Create 2D Texture Param and Connect to Normal
 NormalTextureParam = MaterialEditLibrary.create_material_expression(Materials, unreal.MaterialExpressionTextureSampleParameter, -384, 700)
 NormalTextureParam.set_editor_property("ParameterName", "Normal")
+NormalTextureParam.set_editor_property("SamplerType", "Normal")
 MaterialEditLibrary.connect_material_property(NormalTextureParam, "RGB", unreal.MaterialProperty.MP_NORMAL)
 
 #Create 2D Texture Param and Connect to Metallic
